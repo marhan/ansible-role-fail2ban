@@ -1,5 +1,9 @@
 ---
 - hosts: localhost
   remote_user: root
-  roles:
-    - ../ansible-role-fail2ban
+  vars_files:
+    - '../vars/main.yml'
+  tasks:
+    - include: '../tasks/main.yml'
+  handlers:
+    - include: '../handlers/main.yml'
