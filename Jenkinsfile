@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Test (molecule)') {
 			steps {
-				sh './test-syntax.sh'
+				sh './test-function.sh'
 			}
 		}
   }
