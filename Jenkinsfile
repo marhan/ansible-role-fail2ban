@@ -6,9 +6,9 @@ pipeline {
 				sh "./test-syntax.sh"
 			}
 		}
-		stage('Test (molecule)') {
+		stage('Test (function)') {
 			steps {
-				sh './test-function.sh'
+				sh './test-function.sh
 			}
 		}
   }
