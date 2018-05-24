@@ -35,4 +35,20 @@ MIT
 Test
 ------------------
 
-     ansible-playbook --syntax-check -i tests/inventory tests/test.yml
+Ansible syntax check
+
+```
+ansible-playbook --syntax-check -i tests/inventory tests/test.yml
+```
+
+Molecule test
+
+```
+molecule test
+```
+
+Docker based molecule test
+
+```
+docker run --rm -it -v $(pwd):/tmp/$(basename "${PWD}"):ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/$(basename "${PWD}") retr0h/molecule:latest sudo molecule test
+```

@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: fail2ban
+    - role: ansible-role-fail2ban
