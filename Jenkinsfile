@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('Test (function)') {
 			steps {
-				sh './test-function.sh
+				sh "./test-function.sh"
 			}
 		}
   }
