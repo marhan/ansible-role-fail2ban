@@ -12,3 +12,7 @@ def test_hosts_file(host):
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
+
+
+def test_fail2ban_package(Package):
+    assert Package("fail2ban").is_installed
