@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Test') {
 			steps {
-				sh "molecule test"
+				sh "./test-function.sh"
 			}
 		}
   }
