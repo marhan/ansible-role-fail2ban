@@ -1,1 +1,4 @@
 ---
+
+fail2ban_config_destemail: root@localhost
+fail2ban_config_sender: webmaster@localhost

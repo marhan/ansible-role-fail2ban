@@ -6,17 +6,7 @@
     update_cache: true
     cache_valid_time: 3600
 
-- name: "Ensure file  exists"
-  stat:
-    path: "/etc/yum.repos.d/sonar.repo"
-  register: sonar_repo_stat
-
-- block:
-  - name: "Download SonarQube repo into '/etc/yum.repos.d/sonar.repo'"
-    get_url:
-      #url: " http://downloads.sourceforge.net/project/sonar-pkg/rpm/sonar.repo"
-      url: " http://bla.blub"
-      dest: "/etc/yum.repos.d/sonar.repo"
-    retries: 5
-    delay: 10
-  when: not sonar_repo_stat.stat.exists
+- name: configure fail2ban local jails
+  action: template src=jail.local.j2 dest=/etc/fail2ban/jail.local mode=0644
+  notify: restart fail2ban
+  tags: configuration
