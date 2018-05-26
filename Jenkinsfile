@@ -1,14 +1,9 @@
 pipeline {
 	agent any
 	stages {
-		stage('Test (syntax)') {
+		stage('Test') {
 			steps {
-				sh "./test-syntax.sh"
-			}
-		}
-		stage('Test (function)') {
-			steps {
-				sh "./test-function.sh"
+				sh "molecule test"
 			}
 		}
   }
