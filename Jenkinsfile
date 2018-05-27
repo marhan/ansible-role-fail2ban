@@ -1,14 +1,14 @@
 pipeline {
   agent { label 'molecule' }
 
-  //environment {
-    //PYENVPIPELINE_VIRTUALENV_RELATIVE_DIRECTORY = '/home/buildagent1/molecule/bin/python'
-  //}
+  environment {
+    PYENVPIPELINE_VIRTUALENV_RELATIVE_DIRECTORY = 'molecule'
+  }
 
   stages {
     stage('Test') {
       steps {
-        withPythonEnv('molecule') {
+        withPythonEnv('python3') {
           pysh "molecule test"
         }
       }
