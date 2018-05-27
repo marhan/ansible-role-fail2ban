@@ -1,9 +1,9 @@
 pipeline {
   agent { label 'molecule' }
 
-  environment {
+  //environment {
     //PYENVPIPELINE_VIRTUALENV_RELATIVE_DIRECTORY = '/home/buildagent1/molecule/bin/python'
-  }
+  //}
 
   stages {
     stage('Activate venv') {
