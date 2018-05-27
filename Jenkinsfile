@@ -6,11 +6,6 @@ pipeline {
   //}
 
   stages {
-    stage('Activate venv') {
-      steps {
-        sh "source molecule/bin/activate"
-      }
-    }
     stage('Test') {
       steps {
         withPythonEnv('/home/buildagent1/molecule/bin/python') {
