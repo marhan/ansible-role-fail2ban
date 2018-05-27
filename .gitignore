@@ -3,3 +3,4 @@
 .vscode
 .molecule
 __pycache__
+venv

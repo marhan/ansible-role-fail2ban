@@ -32,6 +32,27 @@ License
 
 MIT
 
+Used projects
+------------------
+- This project is implemented with [Ansible](https://www.ansible.com/)
+- The test infrastructure is realized with [Molecule](https://molecule.readthedocs.io/en/latest/#)
+- Test cases are implemented with [TestInfra](https://testinfra.readthedocs.io/en/latest/index.html)
+- The test infrastructure uses [Docker](https://www.docker.com/)
+
+Requirements
+------------------
+
+Not noteworthy that you have to install [Ansible](https://www.ansible.com/).
+
+To run the test with molecule you need to install it e.g. by [pip](https://pypi.org/project/pip/). 
+```
+pip install molecule
+pip install docker-py
+```
+
+An alternative is, you can use the Docker container from [Docker Hub](https://hub.docker.com/r/retr0h/molecule/). 
+The container has Ansible and Molecule already inserted. 
+
 Test
 ------------------
 
@@ -50,5 +71,9 @@ molecule test
 Docker based molecule test
 
 ```
-docker run --rm -it -v $(pwd):/tmp/$(basename "${PWD}"):ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/$(basename "${PWD}") retr0h/molecule:latest sudo molecule test
+docker run --rm -it \
+-v $(pwd):/tmp/$(basename "${PWD}"):ro \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-w /tmp/$(basename "${PWD}") \
+retr0h/molecule:latest sudo molecule test;
 ```
