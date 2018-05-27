@@ -1,9 +1,9 @@
 pipeline {
-	agent any
+	agent 'molecule'
 	stages {
 		stage('Test') {
 			steps {
-				sh "./test-function.sh"
+				sh "molecule test"
 			}
 		}
   }
