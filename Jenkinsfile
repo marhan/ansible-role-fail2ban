@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        withPythonEnv('/home/buildagent1/molecule/bin/python') {
+        withPythonEnv('molecule') {
           pysh "molecule test"
         }
       }
