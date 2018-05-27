@@ -51,7 +51,11 @@ pip install docker-py
 ```
 
 An alternative is, you can use the Docker container from [Docker Hub](https://hub.docker.com/r/retr0h/molecule/). 
-The container has Ansible and Molecule already inserted. 
+The container has Ansible and Molecule already inserted.
+
+Tune environment
+------------------
+- [Setup virtual python environment](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04) 
 
 Test
 ------------------
