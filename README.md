@@ -37,38 +37,31 @@ Test Requirements
 
 Not noteworthy that you have to install [Ansible](https://www.ansible.com/).
 
-To run the test with molecule you need to install it e.g. by [pip](https://pypi.org/project/pip/). 
+To run tests with Molecule you need to install it.
+
+**Installation via pip**
+
 ```
 pip install molecule
 pip install docker-py
 ```
 
-An alternative is, you can use the Docker container from [Docker Hub](https://hub.docker.com/r/retr0h/molecule/). 
-The container has Ansible and Molecule already inserted.
+An alternative is, you can use a Docker container from [Docker Hub](https://hub.docker.com/r/retr0h/molecule/). 
+The container has all dependencies like Ansible and Molecule included.
 
 Run tests
 ------------------
 
-Ansible syntax check
-
-```
-ansible-playbook --syntax-check -i tests/inventory tests/test.yml
-```
-
-Molecule test
+Run Molecule.
 
 ```
 molecule test
 ```
 
-Docker based molecule test
+Run Molecule via Docker container.
 
 ```
-docker run --rm -it \
--v $(pwd):/tmp/$(basename "${PWD}"):ro \
--v /var/run/docker.sock:/var/run/docker.sock \
--w /tmp/$(basename "${PWD}") \
-retr0h/molecule:latest sudo molecule test;
+./test_via_docker.sh
 ```
 
 Relevant projects

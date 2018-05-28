@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh "./test_via_docker.sh"
+        sh "./tests/test_via_docker.sh"
       }
     }
   }
