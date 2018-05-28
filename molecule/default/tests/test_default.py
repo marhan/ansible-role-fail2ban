@@ -1,4 +1,5 @@
 import os
+
 import pytest
 import testinfra.utils.ansible_runner
 
@@ -10,14 +11,13 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ("fail2ban", "0.9"),
 ])
 def test_packages(host, name, version):
-    pkg = host.package(name)
-    assert pkg.is_installed
-    assert pkg.version.startswith(version)
+    package = host.package(name)
+    assert package.is_installed
+    assert package.version.startswith(version)
 
 
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
-
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
+def test_jail_file(host):
+    jail_file = host.file('/etc/fail2ban/jail.local')
+    assert jail_file.exists
+    assert jail_file.user == 'root'
+    assert jail_file.group == 'root'

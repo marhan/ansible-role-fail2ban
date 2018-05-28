@@ -25,21 +25,14 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: marhan.ansible, x: 42 }
 
 License
 -------
 
 MIT
 
-Used projects
-------------------
-- This project is implemented with [Ansible](https://www.ansible.com/)
-- The test infrastructure is realized with [Molecule](https://molecule.readthedocs.io/en/latest/#)
-- Test cases are implemented with [TestInfra](https://testinfra.readthedocs.io/en/latest/index.html)
-- The test infrastructure uses [Docker](https://www.docker.com/)
-
-Requirements
+Test Requirements
 ------------------
 
 Not noteworthy that you have to install [Ansible](https://www.ansible.com/).
@@ -53,11 +46,7 @@ pip install docker-py
 An alternative is, you can use the Docker container from [Docker Hub](https://hub.docker.com/r/retr0h/molecule/). 
 The container has Ansible and Molecule already inserted.
 
-Tune environment
-------------------
-- [Setup virtual python environment](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04) 
-
-Test
+Run tests
 ------------------
 
 Ansible syntax check
@@ -81,3 +70,17 @@ docker run --rm -it \
 -w /tmp/$(basename "${PWD}") \
 retr0h/molecule:latest sudo molecule test;
 ```
+
+Relevant projects
+------------------
+- This project is implemented with [Ansible](https://www.ansible.com/)
+- The test infrastructure is realized with [Molecule](https://molecule.readthedocs.io/en/latest/#)
+- Test cases are implemented with [TestInfra](https://testinfra.readthedocs.io/en/latest/index.html)
+- The test infrastructure uses [Docker](https://www.docker.com/)
+
+Interesting Resources
+------------------
+- [Setup virtual python environment](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-16-04) 
+- [Permissions Calculator](http://permissions-calculator.org/)
+
+

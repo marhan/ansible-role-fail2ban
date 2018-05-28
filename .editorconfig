@@ -13,6 +13,6 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.my]
+[*.py]
 indent_size = 4
 trim_trailing_whitespace = false

@@ -1,12 +1,17 @@
 ---
-- name: fail2ban is installed
+- name: Fail2ban is installed
   apt:
     name: fail2ban
     state: present
     update_cache: true
     cache_valid_time: 3600
 
-- name: configure fail2ban local jails
-  action: template src=jail.local.j2 dest=/etc/fail2ban/jail.local mode=0644
+- name: Jail config file exists
+  template:
+    src: jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    group: root
+    owner: root
+    mode: '0644'
   notify: restart fail2ban
   tags: configuration
