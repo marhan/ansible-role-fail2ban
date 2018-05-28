@@ -1,12 +1,13 @@
 ---
-- name: Fail2ban is installed
+- name: "Fail2ban package is present"
   apt:
     name: fail2ban
     state: present
     update_cache: true
     cache_valid_time: 3600
+  tags: fail2ban
 
-- name: Jail config file exists
+- name: "Jail config file is configured"
   template:
     src: jail.local.j2
     dest: /etc/fail2ban/jail.local
@@ -14,4 +15,13 @@
     owner: root
     mode: '0644'
   notify: restart fail2ban
-  tags: configuration
+  tags: fail2ban
+
+- name: "/etc/fail2ban/action.d/mail-whois.conf is configured"
+  lineinfile:
+    path: "{{ item }}"
+    regexp: '^dest ='
+    line: 'dest = recipent@testdomain.com'
+  with_items: "{{fail2ban_action_d_files}}"
+  notify: restart fail2ban
+  tags: fail2ban

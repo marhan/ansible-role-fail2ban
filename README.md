@@ -1,12 +1,12 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Teh purpose of the rule is installation and configuratio of Fail2Ban at Linux distributions.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This project is implemented for [Ansible](https://www.ansible.com/), therefor you have to install it before using the role in your ansible playbooks.
 
 Role Variables
 --------------
@@ -66,7 +66,14 @@ Run Molecule via Docker container.
 
 Relevant projects
 ------------------
-- This project is implemented with [Ansible](https://www.ansible.com/)
+
+**Syntax Linter**
+
+- YAML files are checked by [Yamllint](https://github.com/adrienverge/yamllint)
+- Python files are checked by [Flake8](https://pypi.org/project/flake8/)
+
+**Functional Test**
+
 - The test infrastructure is realized with [Molecule](https://molecule.readthedocs.io/en/latest/#)
 - Test cases are implemented with [TestInfra](https://testinfra.readthedocs.io/en/latest/index.html)
 - The test infrastructure uses [Docker](https://www.docker.com/)

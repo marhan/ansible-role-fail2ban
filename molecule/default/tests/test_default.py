@@ -11,13 +11,20 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ("fail2ban", "0.9"),
 ])
 def test_packages(host, name, version):
-    package = host.package(name)
-    assert package.is_installed
-    assert package.version.startswith(version)
+    subject = host.package(name)
+    assert subject.is_installed
+    assert subject.version.startswith(version)
 
 
-def test_jail_file(host):
-    jail_file = host.file('/etc/fail2ban/jail.local')
-    assert jail_file.exists
-    assert jail_file.user == 'root'
-    assert jail_file.group == 'root'
+def test_jail_local(host):
+    subject = host.file('/etc/fail2ban/jail.local')
+    assert subject.exists
+    assert subject.user == 'root'
+    assert subject.group == 'root'
+    assert b'destemail = recipent@testdomain.com' in subject.content
+
+
+@pytest.mark.parametrize("file_name", ["mail.conf", "mail-whois-lines.conf", "mail-buffered.conf", "mail-whois.conf"])
+def test_action_d_conf(host, file_name):
+    content = host.file('/etc/fail2ban/action.d/' + file_name).content
+    assert b'dest = recipent@testdomain.com' in content

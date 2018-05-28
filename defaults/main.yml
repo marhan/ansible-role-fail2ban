@@ -1,4 +1,9 @@
 ---
 
-fail2ban_config_destemail: root@localhost
+fail2ban_config_destemail: recipent@testdomain.com
 fail2ban_config_sender: webmaster@localhost
+fail2ban_action_d_files:
+- etc/fail2ban/action.d/mail-whois.conf
+- /etc/fail2ban/action.d/mail-buffered.conf
+- /etc/fail2ban/action.d/mail-whois-lines.conf
+- /etc/fail2ban/action.d/mail.conf
