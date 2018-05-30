@@ -1,5 +1,7 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    fail2ban_config_destemail: another_recipent@anotherdomain.com
   roles:
     - role: ansible-role-fail2ban
