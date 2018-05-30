@@ -10,6 +10,8 @@ platforms:
     image: ubuntu:16.04
 provisioner:
   name: ansible
+  #options:
+  #  vvv: true
   lint:
     name: ansible-lint
 scenario:
