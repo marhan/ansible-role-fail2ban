@@ -6,14 +6,16 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance-fail2ban-default
+  - name: instance-fail2ban-variables
     image: ubuntu:16.04
 provisioner:
   name: ansible
+  playbooks:
+    converge: variables-playbook.yml
   lint:
     name: ansible-lint
 scenario:
-  name: default
+  name: variables
 verifier:
   name: testinfra
   lint:
