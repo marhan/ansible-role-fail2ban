@@ -10,8 +10,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 def test_jail_local(host):
     subject = host.file('/etc/fail2ban/jail.local')
     assert subject.exists
-    assert subject.user == 'root'
-    assert subject.group == 'root'
     assert b'destemail = another_recipent@anotherdomain.com' in subject.content
 
 
