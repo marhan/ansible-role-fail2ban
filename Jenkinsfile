@@ -7,7 +7,10 @@ pipeline {
   }
   stages {
     stage('Env') {
-      sh "printenv"
+      agent any
+      steps {
+        sh "printenv"
+      }
     }
     stage('Test') {
       parallel {
