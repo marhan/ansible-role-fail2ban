@@ -6,6 +6,9 @@ pipeline {
     }
   }
   stages {
+    stage('Env') {
+      sh "printenv"
+    }
     stage('Test') {
       parallel {
         stage('Test (default)') {
