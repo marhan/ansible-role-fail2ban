@@ -1,17 +1,13 @@
 pipeline {
   agent any
-
   stages {
-
     stage('Env') {
       steps {
         sh "printenv"
       }
     }
-
     stage('Test') {
       parallel {
-
         stage('Test (default)') {
           agent {
             docker {
@@ -23,7 +19,6 @@ pipeline {
             }
           }
         }
-
         stage('Test (variables)') {
           agent {
             docker {
