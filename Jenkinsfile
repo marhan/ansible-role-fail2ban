@@ -1,30 +1,35 @@
 pipeline {
-  agent {
-    docker {
-      image 'retr0h/molecule:latest'
-      args '-v $WORKSPACE:/tmp/ansible-role-fail2ban:ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/ansible-role-fail2ban'
+  agent any
+}
+stages {
+  stage('Env') {
+    steps {
+      sh "printenv"
     }
   }
-  stages {
-    stage('Env') {
-      agent any
-      steps {
-        sh "printenv"
-      }
-    }
-    stage('Test') {
-      parallel {
-        stage('Test (default)') {
+  stage('Test') {
+    parallel {
+      stage('Test (default)') {
+        agent {
+          docker {
+            image 'retr0h/molecule:latest'
+            args '-v $WORKSPACE:/tmp/ansible-role-fail2ban:ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/ansible-role-fail2ban'
+          }
           steps {
             sh 'molecule test -s default'
           }
         }
         stage('Test (variables)') {
-          steps {
-            sh 'molecule test -s variables'
+          agent {
+            docker {
+              image 'retr0h/molecule:latest'
+              args '-v $WORKSPACE:/tmp/ansible-role-fail2ban:ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/ansible-role-fail2ban'
+            }
+            steps {
+              sh 'molecule test -s variables'
+            }
           }
         }
       }
     }
   }
-}
