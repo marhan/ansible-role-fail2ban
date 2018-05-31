@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'retr0h/molecule:latest'
-      args  'docker run --rm -i -v \$(pwd):/tmp/ansible-role-fail2ban:ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/ansible-role-fail2ban'
+      args  'docker run --rm -i -v $(pwd):/tmp/ansible-role-fail2ban:ro -v /var/run/docker.sock:/var/run/docker.sock -w /tmp/ansible-role-fail2ban'
     }
   } 
   
