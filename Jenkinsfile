@@ -2,8 +2,11 @@ pipeline {
   agent  any
 
   stages {
-      stage('Test (default)') {
-        sh "printenv"
+      stage('Test (default)') {        
+        steps {
+          sh "printenv"
+        }
+        
       }
 
 
