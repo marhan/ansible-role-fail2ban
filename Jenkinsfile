@@ -7,18 +7,20 @@ pipeline {
   }
 
   stages {
-
-    stage('Test (default)') {
-      steps {
-        sh "${DOCKER_COMMAND_PART_1} sudo molecule test -s default"
-      }
+    stage('Test') {
+        parallel {
+            stage('Test (default)') {
+              steps {
+                sh "${DOCKER_COMMAND_PART_1} sudo molecule test -s default"
+              }
+            }
+        
+            stage('Test (variables)') {
+              steps {
+                sh "${DOCKER_COMMAND_PART_1} sudo molecule test -s variables"
+              }
+            }
+        }
     }
-
-    stage('Test (variables)') {
-      steps {
-        sh "${DOCKER_COMMAND_PART_1} sudo molecule test -s variables"
-      }
-    }
-
   }
 }
