@@ -9,3 +9,7 @@ rules:
     level: error
   line-length: disable
   indentation: {spaces: 2, indent-sequences: consistent}
+
+ignore: |
+  .circleci
+  /home/circleci/repo/venv/lib/
