@@ -31,7 +31,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            molecule test
+            molecule test --debug
 
       - store_artifacts:
           path: test-reports
