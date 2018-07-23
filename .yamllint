@@ -12,4 +12,4 @@ rules:
 
 ignore: |
   .circleci
-  /home/circleci/repo/venv/lib/
+  site-packages
