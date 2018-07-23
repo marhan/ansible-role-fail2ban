@@ -20,6 +20,9 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker:
+          docker_layer_caching: true
+
       # run tests!
       # this example uses Django's built-in test-runner
       # other common Python testing frameworks include pytest and nose
