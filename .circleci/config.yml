@@ -12,8 +12,13 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
 
-      - run: pip install docker
-      - run: pip install molecule
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install docker
+            pip install molecule
 
       - run:
           name: run tests
