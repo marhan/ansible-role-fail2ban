@@ -5,7 +5,7 @@
 version: 2
 jobs:
   build:
-    machine:
+    machine: true
       - setup_remote_docker:
         docker_layer_caching: true
 
