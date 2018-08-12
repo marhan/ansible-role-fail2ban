@@ -1,13 +1,17 @@
 version: 2
 jobs:
   build:
-    machine:
+    machine: true
       image: retr0h/molecule:latest
 
     working_directory:  ~/repo
 
     steps:
       - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
       - run:
           name: run tests
           command: |
