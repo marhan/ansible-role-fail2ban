@@ -1,4 +1,4 @@
 requests==2.19.1
 ansible==2.6.2
 molecule==2.17.0
-docker==3.5.0
+docker[tls]==3.5.0
