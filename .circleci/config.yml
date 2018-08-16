@@ -4,8 +4,6 @@ jobs:
     working_directory: ~/ansible-role-fail2ban
     docker:
       - image: circleci/python:3.7-stretch-browsers
-        environment:
-          docker_host: tcp://35.237.235.193:2376
     steps:
       - checkout
       - setup_remote_docker:
