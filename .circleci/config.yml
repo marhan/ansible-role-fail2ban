@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/ansible-role-fail2ban
+    working_directory: ~/repo
     docker:
       - image: circleci/python:3.7-stretch-browsers
     steps:
@@ -18,4 +18,4 @@ jobs:
           name: Run molecule tests
           command: |
             . venv/bin/activate
-            molecule test
+            molecule --debug test
