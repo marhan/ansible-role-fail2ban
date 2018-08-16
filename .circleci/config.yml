@@ -1,14 +1,18 @@
 version: 2
 jobs:
   build:
-    machine: true
+    working_directory: ~/ansible-role-fail2ban
+    docker:
+      - image: circleci/python:3.7-stretch-browsers
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Install test requirements
           command: |
-            virtualenv ~/.venv
-            . ~/.venv/bin/activate
+            python3 -m venv venv
+            . venv/bin/activate
             pip install -r requirements.txt
       - run:
           name: Run molecule tests
