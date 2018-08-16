@@ -1,3 +1,2 @@
 docker
-ansible==2.6
 molecule
