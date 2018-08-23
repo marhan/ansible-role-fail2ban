@@ -1,9 +1,10 @@
 version: 2
 jobs:
-  test:
-    machine: true
-    python:
-      version: 3.6.0
+  build:
+    machine:
+      enabled: true
+      python:
+        version: 3.6.5
     steps:
       - checkout
       - run:
