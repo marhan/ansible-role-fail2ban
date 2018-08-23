@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/python:3.7-stretch-browsers
+    machine:
+      enabled: true
     steps:
       - checkout
       - setup_remote_docker
