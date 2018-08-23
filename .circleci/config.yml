@@ -1,11 +1,9 @@
 version: 2
 jobs:
   build:
-    machine:
-      enabled: true
+    machine: true
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           name: Install test requirements
           command: |
