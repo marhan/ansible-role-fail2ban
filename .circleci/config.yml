@@ -2,9 +2,9 @@ version: 2
 jobs:
   build:
     machine:
-      enabled: true
-      python:
-        version: 3.6.5
+      pre:
+        - pyenv local 3.6.5
+        - virtualenv venv
     steps:
       - checkout
       - run:
