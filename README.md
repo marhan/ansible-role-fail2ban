@@ -3,7 +3,7 @@ WORK IN PROGRESS!
 Role Name
 =========
 
-Teh purpose of the rule is installation and configuratio of Fail2Ban at Linux distributions.
+Teh purpose of the rule is installation and configuration of Fail2Ban at Linux distributions.
 
 Requirements
 ------------
